@@ -1,0 +1,2386 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HtmlElements</name>
+    </assembly>
+    <members>
+        <member name="T:HtmlElements.ElementGroup">
+            <summary>
+                Named group of related <see cref="T:OpenQA.Selenium.IWebElement">WebElements</see>.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.ElementGroup.#ctor(System.String[])">
+            <summary>
+                Initializes a new instance of the <see cref="T:HtmlElements.ElementGroup"/> class.
+            </summary>
+            <param name="groups">
+                List of group names WebElements belongs to.
+            </param>
+        </member>
+        <member name="M:HtmlElements.ElementGroup.GetElements(System.Object)">
+            <summary>
+                Retrieves all WebElements marked with <see cref="T:HtmlElements.ElementGroupAttribute"/> and matching group name.
+            </summary>
+            <param name="pageObject">
+                Page object which fields and properties is being scanned.
+            </param>
+            <returns>
+                List of WebElements which belong to current group.
+            </returns>
+        </member>
+        <member name="T:HtmlElements.ElementGroupAttribute">
+            <summary>
+                Allows to mark a page object field or property as part of named group. 
+            </summary>
+            <seealso cref="T:System.Attribute" />
+        </member>
+        <member name="M:HtmlElements.ElementGroupAttribute.#ctor(System.String[])">
+            <summary>
+                Initializes a new instance of the <see cref="T:HtmlElements.ElementGroupAttribute"/> class with provided group names.
+            </summary>
+            <param name="groups">
+                List of group names to which element belongs.
+            </param>
+        </member>
+        <member name="P:HtmlElements.ElementGroupAttribute.Groups">
+            <summary>
+                List of group names.
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlTable">
+            <summary>
+                Models table DOM element and provides access to individual rows and columns.
+            </summary>
+            <seealso cref="T:HtmlElements.Elements.HtmlElement" />
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlTable.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                 Initializes new instance of HTML element by calling base class constructor.
+             </summary>
+             <param name="wrapped">
+                 WebElement wrapping WebDriver instance.
+             </param>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlTable.Column(System.Int32)">
+            <summary>
+                Get list of cells in a column with given index.
+            </summary>
+            <param name="index">
+                Table column index.
+            </param>
+            <returns>
+                List of column cells.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlTable.Row(System.Int32)">
+            <summary>
+                Get list of cells in a row with given index.
+            </summary>
+            <param name="index">
+                Table row index.
+            </param>
+            <returns>
+                List of row cells.
+            </returns>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlCheckBox">
+            <summary>
+                Models HTML input with checkbox or radio button type
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlCheckBox.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                 Initializes new instance of HTML element by calling base class constructors
+             </summary>
+             <param name="webElement">
+                 WebElement wrapping WebDriver instance
+             </param>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlCheckBox.Checked">
+            <summary>
+                Specifies whether checkbox or radio button is selected and allows to change it
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlCheckBox.Select">
+            <summary>
+                Marks checkbox as selected.
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlControl">
+            <summary>
+                Models HTML select, input or text area elements
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlControl.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                Initializes new instance of HTML element by calling base class constructor
+            </summary>
+            <param name="webElement">
+                WebElement wrapping WebDriver instance
+            </param>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlControl.Value">
+            <summary>
+                Value assigned to control
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlControl.Disabled">
+            <summary>
+                Disabled/enabled control state
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlElement">
+            <summary>
+                Models HTML DOM element providing access to common attributes and properties
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlElement.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                 Initializes new instance of HTML element by calling base class constructor
+             </summary>
+             <param name="webElement">
+                 WebElement wrapping WebDriver instance
+             </param>
+             <exception cref="T:System.ArgumentException">
+                 Thrown when <paramref name="webElement"/> does not wrap WebDriver
+             </exception>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.ParentNode">
+            <summary>
+                A WebElement, representing the parent node of current element, or null if it has no parent
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.PreviousSibling">
+            <summary>
+                A previous node of current web element, in the same tree level
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.FirstChild">
+            <summary>
+                First child node of the web element, as a web element
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.LastChild">
+            <summary>
+                Last child node of the current element, as a web element
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.InnerHtml">
+            <summary>
+                HTML content of an element
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.TextContent">
+            <summary>
+                Returns or sets the text from the element.
+                On returning text, this property returns the value of all text nodes within the element node.
+                On setting text, this property removes all child nodes and replaces them with a single text node.
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.Name">
+            <summary>
+                Gets or sets 'name' attribute of the underlying DOM element or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.Id">
+            <summary>
+                Gets or sets 'id' attribute of the underlying DOM element or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.Class">
+            <summary>
+               Gets or sets 'class' attribute of the underlying DOM element or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.Style">
+            <summary>
+                Gets or sets 'style' attribute of the underlying DOM element or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.Title">
+            <summary>
+                Gets or sets 'title' attribute of the underlying DOM element or null if it does not exist
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlElement.Clear">
+            <summary>
+                Clears the content of this element.
+            </summary>
+            <remarks>
+                If this element is a text entry element, the method will clear the value. 
+                It has no effect on other elements. Text entry elements are defined as elements with INPUT or TEXTAREA tags.
+            </remarks>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlElement.SendKeys(System.String)">
+            <summary>
+                Simulates typing text into the element.
+            </summary>
+            <param name="text">The text to type into the element.</param>
+            <remarks>
+                The text to be typed may include special characters like arrow keys, backspaces, function keys, and so on. 
+                Valid special keys are defined in <see cref="T:OpenQA.Selenium.Keys"/>.
+            </remarks>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlElement.Submit">
+            <summary>
+                Submits this element to the web server.
+            </summary>
+            <remarks>
+                If this current element is a form, or an element within a form, then this will be submitted to the web server. 
+                If this causes the current page to change, then this method will block until the new page is loaded.
+            </remarks>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlElement.Click">
+            <summary>
+                Clicks this element.
+            </summary>
+            <remarks>
+                Click this element. If the click causes a new page to load, the method will attempt to block until the page has loaded. 
+                After calling the method, you should discard all references to this element unless you know that the element and the page will still be present.  
+                Otherwise, any further operations performed on this element will have an undefined behavior.
+                If this element is not clickable, then this operation is ignored. 
+                This allows you to simulate a users to accidentally missing the target when clicking.
+            </remarks>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlElement.GetAttribute(System.String)">
+            <summary>
+                Gets the value of the specified attribute for this element.
+            </summary>
+            <param name="attributeName">The name of the attribute.</param>
+            <returns>The attribute's current value. Returns a null if the value is not set.</returns>
+            <remarks>
+                The method will return the current value of the attribute, even if the value has been modified after the page has been loaded. 
+                Note that the value of the following attributes will be returned even if there is no explicit attribute on the element: 
+                Attribute nameValue returned if not explicitly specified.
+            </remarks>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlElement.GetCssValue(System.String)">
+            <summary>
+                Gets the value of a CSS property of this element.
+            </summary>
+            <param name="propertyName">The name of the CSS property to get the value of.</param>
+            <returns>The value of the specified CSS property.</returns>
+            <remarks>
+                The value returned by the method is likely to be unpredictable in a cross-browser environment.  
+                Color values should be returned as hex strings. 
+                For example, a "background-color" property set as "green" in the HTML source, will return "#008000" for its value.
+            </remarks>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.WrappedElement">
+            <summary>
+                Returns underlying web element wrapped by current <see cref="T:HtmlElements.Elements.HtmlElement"/>
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.TagName">
+            <summary>
+                Gets the tag name of this element.
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.Text">
+            <summary>
+                Gets the innerText of this element, without any leading or trailing whitespace, and with other whitespace collapsed.
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.Enabled">
+            <summary>
+                Gets a value indicating whether or not this element is enabled.
+            </summary>
+            <remarks>
+                The property will generally return true for everything except explicitly disabled input elements.
+            </remarks>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.Selected">
+            <summary>
+                Gets a value indicating whether or not this element is selected.
+            </summary>
+            <remarks>
+                This operation only applies to input elements such as checkboxes, options in a select element and radio buttons.
+            </remarks>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.Location">
+            <summary>
+                Gets a <see cref="T:System.Drawing.Point"/> object containing the coordinates of the upper-left corner of this element relative to the upper-left corner of the page.
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.Size">
+            <summary>
+                Gets object containing the height and width of this element.
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlElement.Displayed">
+            <summary>
+                Gets a value indicating whether or not this element is displayed.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlElement.EnterText(System.String)">
+            <summary>
+                Replace existing text input with provided.
+            </summary>
+            <param name="text">Text to enter</param>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlElement.Open``1">
+            <summary>
+                Clicks on a wrapped WebElement and creates new page object instance of given type.
+            </summary>
+            <typeparam name="TPage">
+                The type of page object being created.
+            </typeparam>
+            <returns>
+                New page object instance.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlElement.OpenInNewWindow``1">
+            <summary>
+                Clicks on wrapped WebElement, waits until new window is opened and switches to it.
+            </summary>
+            <typeparam name="TPage">
+                Type of page object being created.
+            </typeparam>
+            <returns>
+                New page object instance.
+            </returns>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlForm">
+            <summary>
+                Models form DOM element
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlForm.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                 Initializes new instance of HTML element by calling base class constructor
+             </summary>
+             <param name="webElement">
+                 WebElement wrapping WebDriver instance
+             </param>
+             <exception cref="T:System.ArgumentException">
+                 Thrown when <paramref name="webElement"/> does not wrap WebDriver
+             </exception>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlForm.Action">
+            <summary>
+                Gets or sets 'actions' attribute of the underlying form or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlForm.Method">
+            <summary>
+                Gets or sets 'method' attribute of the underlying form or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlForm.Enctype">
+            <summary>
+                Gets or sets 'enctype' attribute of the underlying form or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlForm.Target">
+            <summary>
+                Gets or sets 'target' attribute of the underlying form or null if it does not exist
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlFrame">
+            <summary>
+                 Models iframe DOM element and provides and exposes it's attributes as properties.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlFrame.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                 Initializes new instance of HTML element by calling base class constructor
+             </summary>
+             <param name="webElement">
+                 WebElement wrapping WebDriver instance
+             </param>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlFrame.SourceURL">
+            <summary>
+                Gets or sets 'src' attribute of the underlying iframe or null if it does not exist
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlImage">
+            <summary>
+                Models image DOM element and provides most commonly used image attributes.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlImage.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                 Initializes new instance of HTML element by calling base class constructor
+             </summary>
+             <param name="webElement">
+                 WebElement wrapping WebDriver instance
+             </param>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlImage.Alt">
+            <summary>
+                Gets or sets 'alt' attribute of the underlying image element or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlImage.Src">
+            <summary>
+                Gets or sets 'src' attribute of the underlying image element or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlImage.Height">
+            <summary>
+                Gets or sets 'height' attribute of the underlying image element or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlImage.Width">
+            <summary>
+                Gets or sets 'width' attribute of the underlying image element or null if it does not exist
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlInput">
+            <summary>
+                Models HTML input element of any type and exposes it's attributes as properties
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlInput.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                 Initializes new instance of HTML element by calling base class constructor
+             </summary>
+             <param name="webElement">
+                 WebElement wrapping WebDriver instance
+             </param>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlInput.Type">
+            <summary>
+                Gets or sets 'type' attribute of the underlying input element or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlInput.InputSize">
+            <summary>
+                Gets or sets 'size' attribute of the underlying input element or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlInput.MaxLength">
+            <summary>
+                Gets or sets 'maxlength' attribute of the underlying input element or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlInput.Src">
+            <summary>
+                Gets or sets 'src' attribute of the underlying input element or null if it does not exist
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlLabel">
+            <summary>
+                Models label DOM element and exposes it's specific attributes as properties
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlLabel.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                 Initializes new instance of HTML element by calling base class constructor
+             </summary>
+             <param name="webElement">
+                 WebElement wrapping WebDriver instance
+             </param>
+             <exception cref="T:System.ArgumentException">
+                 Thrown when <paramref name="webElement"/> does not wrap WebDriver
+             </exception>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlLabel.For">
+            <summary>
+                Gets or sets 'for' attribute of the underlying label or null if it does not exist
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlLink">
+            <summary>
+                Models HTML link element and exposes it's attributes as properties
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlLink.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                 Initializes new instance of HTML element by calling base class constructor
+             </summary>
+             <param name="webElement">
+                 WebElement wrapping WebDriver instance
+             </param>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlLink.Url">
+            <summary>
+                Absolute URL which link is pointing to
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlLink.Href">
+            <summary>
+                Gets or sets 'href' attribute of the underlying link element or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlLink.Target">
+            <summary>
+                Gets or sets 'target' attribute of the underlying link element or null if it does not exist
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlPage">
+            <summary>
+                Models a wed page loaded in browser and exposes some useful methods and properties
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlPage.#ctor(OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Initializes new instance of a page by calling base class constructor
+            </summary>
+            <param name="webDriverOrWrapper">
+                <see cref="T:OpenQA.Selenium.IWebDriver"/>, <see cref="T:OpenQA.Selenium.IWebElement"/> or anything else 
+                which is wrapping WebDriver instance and can be used for locating elements
+            </param>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlPage.ReadyState">
+            <summary>
+                Loading status of the current document loaded or being loading in browser
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlPage.Body">
+            <summary>
+                HTML element which represents body tag of the current page
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlPage.Title">
+            <summary>
+                Title of the current page
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlPage.Source">
+            <summary>
+                Source code of the current page
+            </summary>
+            <remarks>
+                If the page has been modified after loading (for example, by JavaScript) there is no guarantee that the returned text is that of the modified page.  
+                Please consult the documentation of the particular driver being used to determine whether the returned text reflects the current state of the page or the text last sent by the web server. 
+                The page source returned is a representation of the underlying DOM: do not expect it to be formatted or escaped in the same way as the response sent from the web server.
+            </remarks>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlPage.CurrentUrl">
+            <summary>
+                URL of the current page
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlPage.Refresh">
+            <summary>
+                Reload the current page
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlSelect">
+            <summary>
+                Models HTML select element and provides access to it's options
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                Initializes new instance of HTML element by calling base class constructor
+            </summary>
+            <param name="webElement">
+                WebElement wrapping WebDriver instance
+            </param>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlSelect.IsMultiple">
+            <summary>
+                Gets a value indicating whether select element supports multiple selections.
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlSelect.Options">
+            <summary>
+                Gets the list of options for the select element.
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlSelect.SelectedOptions">
+            <summary>
+                Gets all of the selected options within the select element
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlSelect.SelectedOption">
+            <summary>
+                Gets the selected item within the select element.
+                If more than one item is selected this will return the first item.
+            </summary>
+            <exception cref="T:OpenQA.Selenium.NoSuchElementException">
+                Thrown if no option is selected.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+                Returns an enumerator that iterates through select options.
+            </summary>
+            <returns>
+                An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through select options.
+            </returns>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlSelect.Item(System.Int32)">
+            <summary>
+                Gets select option at the specified index. 
+                Using setter will trigger <see cref="T:System.NotSupportedException"/>
+            </summary>
+            <param name="index">
+                The zero-based index of the select option to get.
+            </param>
+            <returns>
+                The select option at the specified index.
+            </returns>
+            <exception cref="T:System.NotSupportedException">
+                Thrown when attempted to set property value.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.RemoveAt(System.Int32)">
+            <summary>
+                Not supported. Calling it will trigger <see cref="T:System.NotSupportedException"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">
+                Thrown on any attempt to use method.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.Insert(System.Int32,HtmlElements.Elements.HtmlSelectOption)">
+            <summary>
+                Not supported. Calling it will trigger <see cref="T:System.NotSupportedException"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">
+                Thrown on any attempt to use method.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.IndexOf(HtmlElements.Elements.HtmlSelectOption)">
+            <summary>
+                Determines the index of a specific option among other select options.
+            </summary>
+            <param name="item">
+                The options to locate in select element.
+            </param>
+            <returns>
+                The index of item if found; otherwise, -1.
+            </returns>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlSelect.IsReadOnly">
+            <summary>
+                Always returns <value>true</value> since list is read-only
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlSelect.Count">
+            <summary>
+                Gets the number of options contained in select element.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.Remove(HtmlElements.Elements.HtmlSelectOption)">
+            <summary>
+                Not supported. Calling it will trigger <see cref="T:System.NotSupportedException"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">
+                Thrown on any attempt to use method.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.CopyTo(HtmlElements.Elements.HtmlSelectOption[],System.Int32)">
+            <summary>
+                Copies select element options to an <see cref="T:System.Array"/>, starting at a particular <see cref="T:System.Array"/> index.
+            </summary>
+            <param name="array">
+                The one-dimensional <see cref="T:System.Array"/> that is the destination of the copied select options. 
+                The <see cref="T:System.Array"/> must have zero-based indexing.
+            </param>
+            <param name="arrayIndex">
+                The zero-based index in array at which copying begins.
+            </param>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.Contains(HtmlElements.Elements.HtmlSelectOption)">
+            <summary>
+                Determines whether the select element contains a specific option.
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.Add(HtmlElements.Elements.HtmlSelectOption)">
+            <summary>
+                Not supported. Calling it will trigger <see cref="T:System.NotSupportedException"/>.
+            </summary>
+            <exception cref="T:System.NotSupportedException">
+                Thrown on any attempt to use method.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.GetEnumerator">
+            <summary>
+                Returns an enumerator that iterates through select options.
+            </summary>
+            <returns>
+                A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through select options.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.SelectByText(System.String)">
+            <summary>
+                Select all options by the text displayed.
+            </summary>
+            <param name="text">
+                The text of the option to be selected. If an exact match is not found, this method will perform a substring match.
+            </param>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.SelectByValue(System.String)">
+            <summary>
+                Select an option by the value.
+            </summary>
+            <param name="value">
+                The value of the option to be selected.
+            </param>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.DeselectAll">
+            <summary>
+                Clear all selected entries. This is only valid when the SELECT supports multiple selections.
+            </summary>
+            <exception cref="T:OpenQA.Selenium.WebDriverException">
+                Thrown when attempting to deselect all options from a SELECT that does not support multiple selections.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.DeselectByText(System.String)">
+            <summary>
+                Deselect the option by the text displayed.
+            </summary>
+            <param name="text">
+                The text of the option to be deselected.
+            </param>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelect.DeselectByValue(System.String)">
+            <summary>
+                Deselect the option having value matching the specified text.
+            </summary>
+            <param name="value">
+                The value of the option to deselect.
+            </param>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlSelectOption">
+            <summary>
+                Models options within HTML select element
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelectOption.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                Initializes new instance of HTML element by calling base class constructor
+            </summary>
+            <param name="webElement">
+                WebElement wrapping WebDriver instance
+            </param>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelectOption.SelectOption">
+            <summary>
+                Mark option as selected.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlSelectOption.DelesectOption">
+            <summary>
+                Remove selection if it was present.
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Elements.HtmlTextArea">
+            <summary>
+                Models text area control and exposes it's attributes
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Elements.HtmlTextArea.#ctor(OpenQA.Selenium.IWebElement)">
+            <summary>
+                Initializes new instance of HTML element by calling base class constructor
+            </summary>
+            <param name="webElement">
+                WebElement wrapping WebDriver instance
+            </param>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlTextArea.Cols">
+            <summary>
+                Gets or sets 'cols' attribute of the underlying text area or null if it does not exist
+            </summary>
+        </member>
+        <member name="P:HtmlElements.Elements.HtmlTextArea.Rows">
+            <summary>
+                Gets or sets 'rows' attribute of the underlying text area or null if it does not exist
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Elements.IHtmlElement">
+            <summary>
+                Web element which is wrapping some <see cref="T:OpenQA.Selenium.IWebDriver"/> instance and <see cref="T:OpenQA.Selenium.IWebElement"/> instance and can execute JavaScript.
+            </summary>
+        </member>
+        <member name="T:HtmlElements.FrameContextOverride">
+            <summary>
+                Allows temporary switching web driver context to frame and switch it back to default context once get disposed.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.FrameContextOverride.#ctor(HtmlElements.Elements.HtmlFrame)">
+            <summary>
+                Switch WebDriver context to frame wrapped by given element
+            </summary>
+            <param name="frameElement">Frame which will became active</param>
+        </member>
+        <member name="M:HtmlElements.FrameContextOverride.#ctor(OpenQA.Selenium.IWebDriver,OpenQA.Selenium.IWebElement)">
+            <summary>
+                Switch WebDriver context to frame wrapped by given element
+            </summary>
+            <param name="webDriver">Target WebDriver</param>
+            <param name="frameElement">Frame which will became active</param>
+        </member>
+        <member name="P:HtmlElements.FrameContextOverride.WrappedDriver">
+            <summary>
+                Driver instance which context get switched
+            </summary>
+        </member>
+        <member name="M:HtmlElements.FrameContextOverride.Dispose">
+            <summary>
+                Switch wrapped driver context to default content
+            </summary>
+        </member>
+        <member name="T:HtmlElements.DocumentReadyState">
+            <summary>
+                Lists possible document loading states
+            </summary>
+        </member>
+        <member name="F:HtmlElements.DocumentReadyState.Uninitialized">
+            <summary>
+                Document not started loading yet.
+            </summary>
+        </member>
+        <member name="F:HtmlElements.DocumentReadyState.Loading">
+            <summary>
+                Document is loading.
+            </summary>
+        </member>
+        <member name="F:HtmlElements.DocumentReadyState.Interactive">
+            <summary>
+                Document has loaded enough and the user can interact with it.
+            </summary>
+        </member>
+        <member name="F:HtmlElements.DocumentReadyState.Loaded">
+            <summary>
+                Document has been loaded.
+            </summary>
+        </member>
+        <member name="F:HtmlElements.DocumentReadyState.Complete">
+            <summary>
+                Document has fully loaded.
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Extensions.ActionExtension">
+            <summary>
+                Provides set of generic methods waiting for a specific condition
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Extensions.ActionExtension.Do``1(``0,System.Action{``0})">
+            <summary>
+                Creates new instance of command builder setting current object as target, 
+                command timeout to 10 seconds and polling interval to 1 second
+            </summary>
+            <typeparam name="TTarget">Command target type</typeparam>
+            <param name="target">Current object being command target</param>
+            <param name="command">Command to execute on target</param>
+            <returns>Command builder</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.ActionExtension.Do``1(``0,System.Action)">
+            <summary>
+                Creates new instance of command builder setting current object as target, 
+                command timeout to 10 seconds and polling interval to 1 second
+            </summary>
+            <typeparam name="TTarget">Command target type</typeparam>
+            <param name="target">Current object being command target</param>
+            <param name="command">Command which does not require target</param>
+            <returns>Command builder</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.ActionExtension.WaitFor``2(``0,System.Func{``0,``1},System.String)">
+            <summary>
+                Wait until command evaluates to not-null value or throw exception other then <see cref="T:OpenQA.Selenium.WebDriverException"/>.
+                Throw <see cref="T:OpenQA.Selenium.WebDriverTimeoutException"/> if command expires eventually. 
+                Current method overload evaluates command every 1 second and times out after 10 seconds.
+            </summary>
+            <typeparam name="TTarget">Type of the command target</typeparam>
+            <typeparam name="TReturn">Type of the command return result</typeparam>
+            <param name="target">Command target</param>
+            <param name="command">Command to evaluate</param>
+            <param name="message">Error message used when command expires</param>
+            <returns>Command result if it succeeded otherwise exception will thrown</returns>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">Thrown when command get timed out</exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.ActionExtension.WaitFor``2(``0,System.Func{``0,``1},System.TimeSpan,System.String)">
+            <summary>
+                Wait until command evaluates to not-null value or throw exception other then <see cref="T:OpenQA.Selenium.WebDriverException"/>.
+                Throw <see cref="T:OpenQA.Selenium.WebDriverTimeoutException"/> if command expires eventually. 
+                Current method overload evaluates command every 1 second.
+            </summary>
+            <typeparam name="TTarget">Type of the command target</typeparam>
+            <typeparam name="TReturn">Type of the command return result</typeparam>
+            <param name="target">Command target</param>
+            <param name="command">Command to evaluate</param>
+            <param name="commandTimeout">Timeout after which command will became expired and exception will be thrown</param>
+            <param name="message">Error message used when command expires</param>
+            <returns>Command result if it succeeded otherwise exception will thrown</returns>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">Thrown when command get timed out</exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.ActionExtension.WaitFor``2(``0,System.Func{``0,``1},System.TimeSpan,System.TimeSpan,System.String)">
+            <summary>
+                Wait until command evaluates to not-null value or throw exception other then <see cref="T:OpenQA.Selenium.WebDriverException"/>.
+                Throw <see cref="T:OpenQA.Selenium.WebDriverTimeoutException"/> if command expires eventually.
+            </summary>
+            <typeparam name="TTarget">Type of the command target</typeparam>
+            <typeparam name="TReturn">Type of the command return result</typeparam>
+            <param name="target">Command target</param>
+            <param name="command">Command to evaluate</param>
+            <param name="commandTimeout">Timeout after which command will became expired and exception will be thrown</param>
+            <param name="pollingInterval">Determines how often command will be evaluated until it expires or succeeds</param>
+            <param name="message">Error message used when command expires</param>
+            <returns>Command result if it succeeded otherwise exception will thrown</returns>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">Thrown when command get timed out</exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.ActionExtension.WaitUntil``1(``0,System.Predicate{``0},System.String)">
+            <summary>
+                Wait until condition evaluates to true or exception other then <see cref="T:OpenQA.Selenium.WebDriverException"/> is thrown.
+                Throw <see cref="T:OpenQA.Selenium.WebDriverTimeoutException"/> if command expires eventually.
+                Current method overload evaluates condition every 1 second and times out after 10 seconds.
+            </summary>
+            <typeparam name="TTarget">Type of the condition target</typeparam>
+            <param name="target">Command target</param>
+            <param name="condition">Condition to evaluate against target</param>
+            <param name="message">Error message used when command expires</param>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">Thrown when condition times out</exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.ActionExtension.WaitUntil``1(``0,System.Predicate{``0},System.TimeSpan,System.String)">
+            <summary>
+                Wait until condition evaluates to true or exception other then <see cref="T:OpenQA.Selenium.WebDriverException"/> is thrown.
+                Throw <see cref="T:OpenQA.Selenium.WebDriverTimeoutException"/> if command expires eventually.
+                Current method overload evaluates condition every 1 second.
+            </summary>
+            <typeparam name="TTarget">Type of the condition target</typeparam>
+            <param name="target">Command target</param>
+            <param name="condition">Condition to evaluate against target</param>
+            <param name="commandTimeout">Timeout after which command will became expired and exception will be thrown</param>
+            <param name="message">Error message used when command expires</param>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">Thrown when condition times out</exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.ActionExtension.WaitUntil``1(``0,System.Predicate{``0},System.TimeSpan,System.TimeSpan,System.String)">
+            <summary>
+                Wait until condition evaluates to true or exception other then <see cref="T:OpenQA.Selenium.WebDriverException"/> is thrown.
+                Throw <see cref="T:OpenQA.Selenium.WebDriverTimeoutException"/> if command expires eventually.
+            </summary>
+            <typeparam name="TTarget">Type of the condition target</typeparam>
+            <param name="target">Command target</param>
+            <param name="condition">Condition to evaluate against target</param>
+            <param name="commandTimeout">Timeout after which command will became expired and exception will be thrown</param>
+            <param name="pollingInterval">Determines how often command will be evaluated until it expires or succeeds</param>
+            <param name="message">Error message used when command expires</param>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">Thrown when condition times out</exception>
+        </member>
+        <member name="T:HtmlElements.Extensions.CommandBuilder`1">
+            <summary>
+                Crates repeatable command being evaluated until command condition became true.
+            </summary>
+            <typeparam name="TTarget">Command target type</typeparam>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.#ctor">
+            <summary>
+                Create new instance of command builder
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.Execute(System.Action{`0})">
+            <summary>
+                Set command to be executed on target
+            </summary>
+            <param name="command">Command to execute</param>
+            <returns>Current builder instance</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.Execute(System.Action)">
+            <summary>
+                Set command which does not require a target
+            </summary>
+            <param name="command">Command to execute</param>
+            <returns>Current builder instance</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.On(`0)">
+            <summary>
+                Set command target. Synonym to <see cref="M:HtmlElements.Extensions.CommandBuilder`1.WithTarget(`0)" />
+            </summary>
+            <param name="target">Command target</param>
+            <returns>Current builder instance</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.For(System.TimeSpan)">
+            <summary>
+                Set command timeout. Synonym to <see cref="M:HtmlElements.Extensions.CommandBuilder`1.WithTimeout(System.TimeSpan)"/>
+            </summary>
+            <param name="commandTimeout">Command expiration timeout</param>
+            <returns>Current builder instance</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.Every(System.TimeSpan)">
+            <summary>
+                Set command polling interval. Synonym to <see cref="M:HtmlElements.Extensions.CommandBuilder`1.WithInterval(System.TimeSpan)"/>
+            </summary>
+            <param name="pollingInterval">Delay between sequential command executions</param>
+            <returns>Current builder instance</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.WithMessage(System.String)">
+            <summary>
+                Set message used to create exception when command times out
+            </summary>
+            <param name="errorMessage">Error message</param>
+            <returns>Current builder instance</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.WithTarget(`0)">
+            <summary>
+                Set command target
+            </summary>
+            <param name="target">Command target</param>
+            <returns>Current builder instance</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.WithInterval(System.TimeSpan)">
+            <summary>
+                Set command polling interval
+            </summary>
+            <param name="pollingInterval">Delay between sequential command executions</param>
+            <returns>Current builder instance</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.WithTimeout(System.TimeSpan)">
+            <summary>
+                Set command timeout
+            </summary>
+            <param name="commandTimeout">Command expiration timeout</param>
+            <returns>Current builder instance</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.Ignoring(System.Type[])">
+            <summary>
+                Set types of exception which should be ignored when thrown by a command
+            </summary>
+            <param name="exceptions">Exception types to ignore</param>
+            <returns>Current builder instance</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.Until(System.Predicate{`0})">
+            <summary>
+                Start execution loop in which command will be evaluated until condition evaluates to true 
+                or command timeout expires or command throw unexpected (not from ignore list) exception
+            </summary>
+            <param name="condition">Predicate telling weather command should be evaluated again</param>
+        </member>
+        <member name="M:HtmlElements.Extensions.CommandBuilder`1.Until(System.Func{System.Boolean})">
+            <summary>
+                Start execution loop in which command will be evaluated until condition evaluates to true 
+                or command timeout expires or command throw unexpected (not from ignore list) exception
+            </summary>
+            <param name="condition">Predicate telling weather command should be evaluated again</param>
+        </member>
+        <member name="T:HtmlElements.Extensions.JavaScriptExtensions">
+            <summary>
+                Provides methods of manipulating DOM element via JavaScript
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Extensions.JavaScriptExtensions.ExecuteScriptOnSelf(HtmlElements.Elements.HtmlElement,System.String,System.Object[])">
+            <summary>
+                Execute JavaScript code in browser replacing all occurrences of <c>{self}</c> with actual DOM element being pointed to by current web element.
+            </summary>
+            <param name="element">Target element</param>
+            <param name="jsSnippet">JavaScript snippet to execute in browser</param>
+            <param name="arguments">Arguments passed to JavaScript snippet</param>
+            <returns>Result of the script execution</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.JavaScriptExtensions.ExecuteScriptOnSelf``1(HtmlElements.Elements.HtmlElement,System.String,System.Object[])">
+            <summary>
+                Execute JavaScript code in browser replacing all occurrences of <c>{self}</c> with actual 
+                DOM element being pointed to by current web element and convert result to specific type.
+            </summary>
+            <param name="element">Target element</param>
+            <param name="jsSnippet">JavaScript snippet to execute in browser</param>
+            <param name="arguments">Arguments passed to JavaScript snippet</param>
+            <returns>Result of the script execution or default value for a given type</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.JavaScriptExtensions.HasAttribute(HtmlElements.Elements.HtmlElement,System.String)">
+            <summary>
+                Checks attribute exists in DOM element
+            </summary>
+            <param name="element">Target element</param>
+            <param name="attributeName">Attribute name</param>
+            <returns>
+                <c>true</c> if attribute exists and <c>false</c> otherwise
+            </returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.JavaScriptExtensions.SetAttribute(HtmlElements.Elements.HtmlElement,System.String,System.String)">
+            <summary>
+                Set DOM element attribute value
+            </summary>
+            <param name="element">Target element</param>
+            <param name="attributeName">Attribute name</param>
+            <param name="attributeValue">Attribute value</param>
+        </member>
+        <member name="M:HtmlElements.Extensions.JavaScriptExtensions.RemoveAttribute(HtmlElements.Elements.HtmlElement,System.String)">
+            <summary>
+                Remove DOM element attribute
+            </summary>
+            <param name="element">Target element</param>
+            <param name="attributeName">Attribute name</param>
+        </member>
+        <member name="M:HtmlElements.Extensions.JavaScriptExtensions.HasProperty(HtmlElements.Elements.HtmlElement,System.String)">
+            <summary>
+                Checks weather property exist in given DOM element object
+            </summary>
+            <param name="element">Target element</param>
+            <param name="propertyName">Property name</param>
+            <returns>
+                <c>true</c> if property with a given name exist and <c>false</c> otherwise
+            </returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.JavaScriptExtensions.SetPropery(HtmlElements.Elements.HtmlElement,System.String,System.Object)">
+            <summary>
+                Set property value for given DOM element object
+            </summary>
+            <param name="element"></param>
+            <param name="propertyName"></param>
+            <param name="propertyValue"></param>
+        </member>
+        <member name="M:HtmlElements.Extensions.JavaScriptExtensions.GetProperty(HtmlElements.Elements.HtmlElement,System.String)">
+            <summary>
+                Get value of a given DOM element property
+            </summary>
+            <param name="element">Target element</param>
+            <param name="propertyName">Property name</param>
+            <returns>Value of the property</returns>
+        </member>
+        <member name="T:HtmlElements.Extensions.StringExtensions">
+            <summary>
+                Extension methods working with strings
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Extensions.StringExtensions.ToCommaSeparatedString(System.Collections.IEnumerable)">
+            <summary>
+                Convert collection to string representation.
+            </summary>
+            <param name="enumerable">Collection to convert</param>
+            <returns>
+                String containing collection items converted to string and separated with commas
+            </returns>
+        </member>
+        <member name="T:HtmlElements.Extensions.TypeExtensions">
+            <summary>
+                Utility functions taking <see cref="T:System.Type" /> as it's first argument
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Extensions.TypeExtensions.IsWebElement(System.Type)">
+            <summary>
+                Determines weather instance of given type can be assigned to <see cref="T:OpenQA.Selenium.IWebElement" /> reference.
+            </summary>
+            <param name="type">Type of interest</param>
+            <returns>
+                <value>true</value>
+                if instance of this type is a we element and
+                <value>false</value>
+                otherwise
+            </returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.TypeExtensions.IsWebElementList(System.Type)">
+            <summary>
+                Determines weather type describes list of web elements.
+            </summary>
+            <param name="type">Type of interest</param>
+            <returns>
+                <value>true</value>
+                if type is <see cref="T:System.Collections.Generic.IList`1" /> and generic argument is a web element, otherwise -
+                <value>false</value>
+            </returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.TypeExtensions.GetOwnAndInheritedProperties(System.Type,System.Reflection.BindingFlags)">
+            <summary>
+                Retrieve metadata of all properties in current object hierarchy which can be assigned a web element or web element list.
+                Properties which cannot be read or written and also indexed properties are being excluded from search.
+            </summary>
+            <param name="type">Type being scanned</param>
+            <param name="bindingFlags">A bitmask comprised that specify how the search is conducted</param>
+            <returns>List of properties metadata which can be assigned a web element or list of web elements value</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.TypeExtensions.GetOwnAndInheritedFields(System.Type,System.Reflection.BindingFlags)">
+            <summary>
+                Retrieve metadata of all fields in current object hierarchy which can be assigned a web element or web element list.
+            </summary>
+            <param name="type">Type being scanned</param>
+            <param name="bindingFlags">A bitmask comprised that specify how the search is conducted</param>
+            <returns>List of fields metadata which can be assigned a web element or list of web elements value</returns>
+        </member>
+        <member name="T:HtmlElements.Extensions.WebDriverExtensions">
+            <summary>
+                Set of additional methods of <see cref="T:OpenQA.Selenium.IWebDriver"/>
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebDriverExtensions.SwitchToLastOpenedWindow(OpenQA.Selenium.IWebDriver)">
+            <summary>
+                Locates last window handler and make it active.
+            </summary>
+            <param name="webDriver">WebDriver instance</param>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebDriverExtensions.WaitUntilNewWindowOpened(OpenQA.Selenium.IWebDriver,System.Action,System.String)">
+            <summary>
+                Perform action and wait for 10 seconds until new browser tab will be opened.
+            </summary>
+            <param name="webDriver">WebDriver instance</param>
+            <param name="command">Action which should trigger new browser tab</param>
+            <param name="message">Error message used when command expires</param>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">
+                Thrown if new tab did not open after 10 seconds
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebDriverExtensions.WaitUntilNewWindowOpened(OpenQA.Selenium.IWebDriver,System.Action,System.TimeSpan,System.String)">
+            <summary>
+                Perform action and wait until new browser tab will be opened.
+            </summary>
+            <param name="webDriver">WebDriver instance</param>
+            <param name="command">Action which should trigger new browser tab</param>
+            <param name="commandTimeout">Time after which command expires</param>
+            <param name="message">Error message used when command expires</param>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">
+                Thrown if new tab did not open after 10 seconds
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebDriverExtensions.IsClosed(OpenQA.Selenium.IWebDriver)">
+            <summary>
+                Determine weather all of the browser windows were closed.
+            </summary>
+            <param name="webDriver">Target web driver</param>
+            <returns><value>true</value> if there are no active windows and <value>false</value> if there is at least one</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebDriverExtensions.SavePageSource(OpenQA.Selenium.IWebDriver,System.String)">
+            <summary>
+                Write page to file.
+            </summary>
+            <param name="webDriver">Target web driver</param>
+            <param name="path">File path</param>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebDriverExtensions.SavePageImage(OpenQA.Selenium.ITakesScreenshot,System.String,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+                Take screen-shot and save it to file.
+            </summary>
+            <param name="webDriver">WebDriver capable of taking screen-shots</param>
+            <param name="imagePath">Screen-shot file path</param>
+            <param name="imageFormat">Image format in which screen-shot will be saved</param>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebDriverExtensions.ScrollTo(OpenQA.Selenium.IWebDriver,System.Int64,System.Int64)">
+            <summary>
+                Scrolls the document to the specified coordinates.
+            </summary>
+            <param name="webDriver">WebDriver capable of executing JavaScript</param>
+            <param name="xpos">The coordinate to scroll to, along the x-axis (horizontal), in pixels</param>
+            <param name="ypos">The coordinate to scroll to, along the y-axis (vertical), in pixels</param>
+            <exception cref="T:System.ArgumentException">
+                Throw if WebDriver cannot execute JavaScript
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebDriverExtensions.ScrollBy(OpenQA.Selenium.IWebDriver,System.Int64,System.Int64)">
+            <summary>
+                 Scrolls the document by the specified number of pixels.
+            </summary>
+            <param name="webDriver">WebDriver capable of executing JavaScript</param>
+            <param name="offsetX">
+                How many pixels to scroll by, along the x-axis (horizontal). 
+                Positive values will scroll to the left, while negative values will scroll to the right.
+            </param>
+            <param name="offsetY">
+                How many pixels to scroll by, along the y-axis (vertical). 
+                Positive values will scroll down, while negative values scroll up.
+            </param>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebDriverExtensions.OpenNewWindow(OpenQA.Selenium.IWebDriver,System.Action,System.String)">
+            <summary>
+                Execute command, wait 10 seconds until new browser tab is opened and switch to it.
+            </summary>
+            <param name="webDriver">Target WebDriver</param>
+            <param name="command">Command which should trigger new browser tab</param>
+            <param name="message">Error message used when command expires</param>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebDriverExtensions.GetUrlParameters(OpenQA.Selenium.IWebDriver)">
+            <summary>
+                Get current URL query parameters and it's values.
+            </summary>
+            <param name="webDriver">Target WebDriver</param>
+            <returns>Collection of URL parameters names as keys and parameters values as values</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebDriverExtensions.ToWebDriver(OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Retrieve instance of <see cref="T:OpenQA.Selenium.IWebDriver"/> wrapped by search context
+            </summary>
+            <param name="searchContext">Search content wrapping <see cref="T:OpenQA.Selenium.IWebDriver"/> instance</param>
+            <returns><see cref="T:OpenQA.Selenium.IWebDriver"/> instance or null</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebDriverExtensions.ToJavaScriptExecutor(OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Retrieve wrapped <see cref="T:OpenQA.Selenium.IWebDriver"/> and try to use it as <see cref="T:OpenQA.Selenium.IJavaScriptExecutor"/>
+            </summary>
+            <param name="searchContext">Search content wrapping <see cref="T:OpenQA.Selenium.IWebDriver"/> instance</param>
+            <returns>WebDriver instance capable of executing JavaScript or null</returns>
+        </member>
+        <member name="T:HtmlElements.Extensions.WebElementExtensions">
+            <summary>
+                Collection of extension methods for web elements and web pages
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.IsTextShown(HtmlElements.Elements.HtmlPage,System.String[])">
+            <summary>
+                Checks weather text is shown on page.
+            </summary>
+            <param name="page">HTML page to search text on</param>
+            <param name="text">List of string to check</param>
+            <returns><c>true</c> if every string from the list is shown on a page and <c>false</c> otherwise</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.IsTextPresent(HtmlElements.Elements.HtmlPage,System.String[])">
+            <summary>
+                Check weather text exist on page.
+            </summary>
+            <param name="page">HTML page to search text on</param>
+            <param name="text">List of string to check</param>
+            <returns><c>true</c> if every string from the list exist on a page and <c>false</c> otherwise</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.IsTextNotPresent(HtmlElements.Elements.HtmlPage,System.String[])">
+            <summary>
+                Check if all text chunks are not shown on page
+            </summary>
+            <param name="page">HTML page to search text on</param>
+            <param name="text">Text to look for</param>
+            <returns>
+                true if all provided chunks are not present in page source and false otherwise
+            </returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.IsVisible``1(``0)">
+            <summary>
+                Checks weather element exist in DOM and visible.
+            </summary>
+            <typeparam name="TTarget">Target element type</typeparam>
+            <param name="element">Element to check</param>
+            <returns><c>true</c> when element exist in DOM and <c>false</c> otherwise</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.IsPresent``1(``0)">
+            <summary>
+                Checks weather element exists in DOM.
+            </summary>
+            <typeparam name="TTarget">Target element type</typeparam>
+            <param name="element">Element to check</param>
+            <returns><c>true</c> when element exist in DOM and <c>false</c> otherwise</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.IsPresent(OpenQA.Selenium.IWebElement)">
+            <summary>
+                Checks weather element exists in DOM.
+            </summary>
+            <param name="element">Element to check</param>
+            <returns><c>true</c> when element exist in DOM and <c>false</c> otherwise</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.IsHidden(OpenQA.Selenium.IWebElement)">
+            <summary>
+                Checks weather element is hidden.
+            </summary>
+            <param name="element">Element to check</param>
+            <returns><c>true</c> if element is hidden or does not exist and <c>false</c> otherwise</returns>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.WaitUntilHidden``1(``0,System.TimeSpan,System.TimeSpan,System.String)">
+            <summary>
+                Wait until element became hidden for 10 seconds checking it every second
+            </summary>
+            <typeparam name="TTarget">Target element type</typeparam>
+            <param name="target">Target element</param>
+            <param name="commandTimeout">Timeout after which command will became expired and exception will be thrown</param>
+            <param name="pollingInterval">Determines how often command will be evaluated until it expires or succeeds</param>
+            <param name="message">Error message used when command expires</param>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">
+                Thrown when element did not hide after 10 seconds
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.WaitUntilHidden``1(``0,System.TimeSpan,System.String)">
+            <summary>
+                Wait until element became hidden for 10 seconds checking it every second
+            </summary>
+            <typeparam name="TTarget">Target element type</typeparam>
+            <param name="target">Target element</param>
+            <param name="commandTimeout">Timeout after which command will became expired and exception will be thrown</param>
+            <param name="message">Error message used when command expires</param>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">
+                Thrown when element did not hide after 10 seconds
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.WaitUntilHidden``1(``0,System.String)">
+            <summary>
+                Wait until element became hidden for 10 seconds checking it every second
+            </summary>
+            <typeparam name="TTarget">Target element type</typeparam>
+            <param name="target">Target element</param>
+            <param name="message">Error message used when command expires</param>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">
+                Thrown when element did not hide after 10 seconds
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.WaitForPresent``1(``0,System.String)">
+            <summary>
+                Wait until element became present on page (get created in DOM) and return the element itself.
+                Current overload waits for 10 seconds and checks weather element is present every second.
+            </summary>
+            <typeparam name="TTarget">Type of the target element</typeparam>
+            <param name="target">Element expected to be created in DOM</param>
+            <param name="message">Error message used when command expires</param>
+            <returns>Element once it became visible</returns>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">
+                Thrown when element did not appear in DOM after 10 seconds
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.WaitForPresent``1(``0,System.TimeSpan,System.String)">
+            <summary>
+                Wait until element became present on page (get created in DOM) and return the element itself.
+                Current overload waits for a given timeout and checks weather element is present every second.
+            </summary>
+            <typeparam name="TTarget">Type of the target element</typeparam>
+            <param name="target">Element expected to be created in DOM</param>
+            <param name="commandTimeout">Timeout after which command will became expired and exception will be thrown</param>
+            <param name="message">Error message used when command expires</param>
+            <returns>Element once it became visible</returns>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">
+                Thrown when element did not appear in DOM after 10 seconds
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.WaitForPresent``1(``0,System.TimeSpan,System.TimeSpan,System.String)">
+            <summary>
+                Wait until element became present on page (get created in DOM) and return the element itself.
+            </summary>
+            <typeparam name="TTarget">Type of the target element</typeparam>
+            <param name="target">Element expected to be created in DOM</param>
+            <param name="commandTimeout">Timeout after which command will became expired and exception will be thrown</param>
+            <param name="pollingInterval">Determines how often command will be evaluated until it expires or succeeds</param>
+            <param name="message">Error message used when command expires</param>
+            <returns>Element once it became visible</returns>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">
+                Thrown when element did not appear in DOM after 10 seconds
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.WaitForVisible``1(``0,System.String)">
+            <summary>
+                Wait until element is being displayed on a page.
+                Current overload waits for 10 seconds checking element visibility every second.
+            </summary>
+            <typeparam name="TTarget">Target element type</typeparam>
+            <param name="target">Target element</param>
+            <param name="message">Error message used when command expires</param>
+            <returns>Target element once it became displayed on a page</returns>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">
+                Thrown when element did not became visible after 10 seconds
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.WaitForVisible``1(``0,System.TimeSpan,System.String)">
+            <summary>
+                Wait until element is being displayed on a page.
+                Current overload waits for a given time checking element visibility every second.
+            </summary>
+            <typeparam name="TTarget">Target element type</typeparam>
+            <param name="target">Target element</param>
+            <param name="commandTimeout">Timeout after which command will became expired and exception will be thrown</param>
+            <param name="message">Error message used when command expires</param>
+            <returns>Target element once it became displayed on a page</returns>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">
+                Thrown when element did not became visible after a given timeout
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.WaitForVisible``1(``0,System.TimeSpan,System.TimeSpan,System.String)">
+            <summary>
+                Wait until element is being displayed on a page.
+                Current overload waits for a given time checking element visibility with provided polling interval.
+            </summary>
+            <typeparam name="TTarget">Target element type</typeparam>
+            <param name="target">Target element</param>
+            <param name="commandTimeout">Timeout after which command will became expired and exception will be thrown</param>
+            <param name="pollingInterval">Determines how often command will be evaluated until it expires or succeeds</param>
+            <param name="message">Error message used when command expires</param>
+            <returns>Target element once it became displayed on a page</returns>
+            <exception cref="T:OpenQA.Selenium.WebDriverTimeoutException">
+                Thrown when element did not became visible after a given timeout
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Extensions.WebElementExtensions.ToRawWebElement(OpenQA.Selenium.IWebElement)">
+            <summary>
+                Get raw version of web element out of wrapper layers
+            </summary>
+            <param name="webElement">WebElement wrapper</param>
+            <returns>Raw web element</returns>
+        </member>
+        <member name="T:HtmlElements.ImplicitWaitOverride">
+            <summary>
+                Allow to declare block of code in which implicit WebDriver wait will be overridden with provided value and restored after it.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.ImplicitWaitOverride.#ctor(OpenQA.Selenium.IWebDriver,System.TimeSpan)">
+            <summary>
+                Create new override for a given browser with provided default value. 
+                Does not change implicit wait on it's own. In order to do so use <see cref="P:HtmlElements.ImplicitWaitOverride.ImplicitWaitTimeout"/> property.
+            </summary>
+            <param name="wrappedDriver">Driver which implicit wait timeout should be overridden</param>
+            <param name="defaultImplicitWait">Default implicit wait timeout set when override is being disposed</param>
+        </member>
+        <member name="M:HtmlElements.ImplicitWaitOverride.#ctor(OpenQA.Selenium.IWebDriver,System.TimeSpan,System.TimeSpan)">
+            <summary>
+                Create new override for a given browser with provided default value. 
+                It actually updates implicit wait setting but it can also be changed later with <see cref="P:HtmlElements.ImplicitWaitOverride.ImplicitWaitTimeout"/> property.
+            </summary>
+            <param name="wrappedDriver">Driver which implicit wait timeout should be overridden</param>
+            <param name="defaultImplicitWait">Default implicit wait timeout set when override is being disposed</param>
+            <param name="overridenImplicitWait">Implicit wait timeout to be set for a given WebDriver instance</param>
+        </member>
+        <member name="P:HtmlElements.ImplicitWaitOverride.WrappedDriver">
+            <summary>
+                Driver instance which timeout get updated
+            </summary>
+        </member>
+        <member name="P:HtmlElements.ImplicitWaitOverride.ImplicitWaitTimeout">
+            <summary>
+                Overridden implicit wait timeout set on a browser
+            </summary>
+        </member>
+        <member name="M:HtmlElements.ImplicitWaitOverride.Dispose">
+            <summary>
+                Reset implicit wait timeout to provided default value
+            </summary>
+        </member>
+        <member name="T:HtmlElements.IPageObjectFactory">
+            <summary>
+                Creates and recursively initializes page object instances.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.IPageObjectFactory.CreateWebElement(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By)">
+            <summary>
+                Creates WebElement found with provided locator in given search context.
+            </summary>
+            <param name="searchContext">
+                Context used for finding element.
+            </param>
+            <param name="locator">
+                Element locator to use for finding element.
+            </param>
+            <returns>
+                Custom WebElement found in given search context with provided locator.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.IPageObjectFactory.CreateWebElement``1(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By)">
+            <summary>
+                Creates and initializes page object of a given type and all nested page objects.
+            </summary>
+            <typeparam name="TPageObject">
+                Page object class.
+            </typeparam>
+            <param name="searchContext">
+                Parent context used for finding the element used as page element root.
+            </param>
+            <param name="locator">
+                Locator used for finding underlying WebElement used as page element root.
+            </param>
+            <returns>
+                Fully initialized page object using WebElement found in <paramref name="searchContext"/> with <paramref name="locator"/> for finding nested elements.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.IPageObjectFactory.CreateWebElementList(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By)">
+            <summary>
+                Creates list of WebElements found with provided locator in given search context.
+            </summary>
+            <param name="searchContext">
+                Context used for finding elements.
+            </param>
+            <param name="locator">
+                Element locator to use for finding elements.
+            </param>
+            <returns>
+                Custom list of WebElements.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.IPageObjectFactory.CreateWebElementList``1(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By)">
+            <summary>
+                Creates and initializes list of page elements and it's nested page objects.
+            </summary>
+            <typeparam name="TPageObject">
+                The type of the page object.
+            </typeparam>
+            <param name="searchContext">
+                The search context used for finding underlying WebElements.
+            </param>
+            <param name="locator">
+                The locator used for finding underlying WebElements.
+            </param>
+            <returns>
+                List of initialized page objects wrapping elements found in <paramref name="searchContext"/> with <paramref name="locator"/>.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.IPageObjectFactory.Create``1(OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Creates and initializes page object of a given type and all nested page objects.
+            </summary>
+            <typeparam name="TPageObject">
+                Page object class.
+            </typeparam>
+            <param name="searchContext">
+                Context used for finding elements.
+            </param>
+            <returns>
+                Fully initialized page object.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.IPageObjectFactory.Create(System.Type,OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Creates and initializes page object of a given type and all nested page objects.
+            </summary>
+            <param name="pageObjecType">
+                Page object class.
+            </param>
+            <param name="searchContext">
+                Context used for finding elements.
+            </param>
+            <returns>
+                Fully initialized page object.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.IPageObjectFactory.Init(System.Object,OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Initialize all nested page objects in given instance.
+            </summary>
+            <param name="pageObject">
+                Page object instance to be initialized.
+            </param>
+            <param name="searchContext">
+                Context used for finding elements.
+            </param>
+        </member>
+        <member name="M:HtmlElements.IPageObjectFactory.Init(HtmlElements.WebDriverWrapper)">
+            <summary>
+                Initialize page object wrapped WebDriver instance.
+            </summary>
+            <param name="pageObject">
+                Page object instance to be initialized.
+            </param>
+        </member>
+        <member name="T:HtmlElements.LazyLoad.LoaderFactory">
+            <summary>
+                Creates caching loaders for WebElements and list of WebElements.
+            </summary>
+            <seealso cref="T:HtmlElements.LazyLoad.ILoaderFactory" />
+        </member>
+        <member name="M:HtmlElements.LazyLoad.LoaderFactory.#ctor(HtmlElements.IPageObjectFactory,HtmlElements.Proxy.IProxyFactory)">
+            <summary>
+                Initializes a new instance of the <see cref="T:HtmlElements.LazyLoad.LoaderFactory"/> class.
+            </summary>
+            <param name="pageObjectFactory">
+                The page object factory used for creating typed list items dynamically.
+            </param>
+            <param name="proxyFactory">
+                The proxy factory used for creating typed list items dynamically.
+            </param>
+        </member>
+        <member name="M:HtmlElements.LazyLoad.LoaderFactory.CreateElementLoader(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By,System.Boolean)">
+            <summary>
+                Creates element loader using search context and locator to find WebElement.
+            </summary>
+            <param name="searchContext">
+                Where to search for web element.
+            </param>
+            <param name="locator">
+                How to find a web element.
+            </param>
+            <param name="enableCache">
+                Whether element should be cached once found.
+            </param>
+            <returns>
+                Loader instance.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.LazyLoad.LoaderFactory.CreateElementListLoader(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By,System.Boolean)">
+            <summary>
+                Creates element list loader using search context and locator to find list of elements.
+            </summary>
+            <param name="searchContext">
+                Where to search for web elements.
+            </param>
+            <param name="locator">
+                How to find a web elements.
+            </param>
+            <param name="enableCache">
+                Whether elements should be cached once found.
+            </param>
+            <returns>
+                Loader instance.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.LazyLoad.LoaderFactory.CreateListLoader(System.Type,OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By,System.Boolean)">
+            <summary>
+                Create list loader wrapping web elements loader.
+            </summary>
+            <param name="elementType">
+                Type of list items.
+            </param>
+            <param name="searchContext">
+                Where to search for web elements.
+            </param>
+            <param name="locator">
+                How to find a web elements.
+            </param>
+            <param name="enableCache">
+                Whether elements should be cached once found.
+            </param>
+            <returns>
+                Loader instance.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.LazyLoad.LoaderFactory.CreateListLoader``1(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By,System.Boolean)">
+            <summary>
+                Create list loader wrapping web elements loader.
+            </summary>
+            <typeparam name="TElement">
+                Type of list items.
+            </typeparam>
+            <param name="searchContext">
+                Context used to locate web elements.
+            </param>
+            <param name="locator">
+                How to find a web elements.
+            </param>
+            <param name="enableCache">
+                Whether elements should be cached once found.
+            </param>
+            <returns>
+                Loader instance.
+            </returns>
+        </member>
+        <member name="T:HtmlElements.LazyLoad.ILoaderFactory">
+            <summary>
+                Creates loaders for web elements and element lists
+            </summary>
+        </member>
+        <member name="M:HtmlElements.LazyLoad.ILoaderFactory.CreateElementLoader(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By,System.Boolean)">
+            <summary>
+                Creates element loader using search context and locator to find WebElement.
+            </summary>
+            <param name="searchContext">
+                Where to search for web element.
+            </param>
+            <param name="locator">
+                How to find a web element.
+            </param>
+            <param name="enableCache">
+                Whether element should be cached once found.
+            </param>
+            <returns>
+                Loader instance.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.LazyLoad.ILoaderFactory.CreateElementListLoader(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By,System.Boolean)">
+            <summary>
+                Creates element list loader using search context and locator to find list of elements.
+            </summary>
+            <param name="searchContext">
+                Where to search for web elements.
+            </param>
+            <param name="locator">
+                How to find a web elements.
+            </param>
+            <param name="enableCache">
+                Whether elements should be cached once found.
+            </param>
+            <returns>
+                Loader instance.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.LazyLoad.ILoaderFactory.CreateListLoader(System.Type,OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By,System.Boolean)">
+            <summary>
+                Create list loader wrapping web elements loader.
+            </summary>
+            <param name="elementType">
+                Type of list items.
+            </param>
+            <param name="searchContext">
+                Where to search for web elements.
+            </param>
+            <param name="locator">
+                How to find a web elements.
+            </param>
+            <param name="enableCache">
+                Whether elements should be cached once found.
+            </param>
+            <returns>
+                Loader instance.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.LazyLoad.ILoaderFactory.CreateListLoader``1(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By,System.Boolean)">
+            <summary>
+                Create list loader wrapping web elements loader.
+            </summary>
+            <typeparam name="TElement">
+                Type of list items.
+            </typeparam>
+            <param name="searchContext">
+                Context used to locate web elements.
+            </param>
+            <param name="locator">
+                How to find a web elements.
+            </param>
+            <param name="enableCache">
+                Whether elements should be cached once found.
+            </param>
+            <returns>
+                Loader instance.
+            </returns>
+        </member>
+        <member name="T:HtmlElements.LazyLoad.ILoader`1">
+            <summary>
+                Represents contract used for creating/caching objects lazily.
+            </summary>
+            <typeparam name="TObject">Type of object to be created/cached</typeparam>
+        </member>
+        <member name="M:HtmlElements.LazyLoad.ILoader`1.Load">
+            <summary>
+                Create new object instance or take it from cache
+            </summary>
+            <returns>Instance of <see cref="!:TObject"/></returns>
+        </member>
+        <member name="M:HtmlElements.LazyLoad.ILoader`1.Reset">
+            <summary>
+                Reset cache if it exist. If cache is not supported then it should have no effect.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.LazyLoad.ILoader`1.ResetAndLoad">
+            <summary>
+                Reset cache and create new instance. Similar to subsequent calls to <see cref="M:HtmlElements.LazyLoad.ILoader`1.Reset"/> and <see cref="M:HtmlElements.LazyLoad.ILoader`1.Load"/>
+            </summary>
+            <returns>Instance of <see cref="!:TObject"/></returns>
+        </member>
+        <member name="P:HtmlElements.LazyLoad.ILoader`1.SearchContext">
+            <summary>
+                Context used to load WebElement or WebElement list.
+            </summary>
+        </member>
+        <member name="T:HtmlElements.Locators.ByJavaScript">
+            <summary>
+                Use JavaScript code to locate WebElement
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Locators.ByJavaScript.#ctor(System.String,System.Object[])">
+            <summary>
+                Creates new instance of JavaScript element finder.
+            </summary>
+            <param name="javaScript">JavaScript code which returns collection of element or single element</param>
+            <param name="arguments">Arguments passed to <see cref="T:OpenQA.Selenium.IJavaScriptExecutor"/> when locating element</param>
+        </member>
+        <member name="T:HtmlElements.Locators.ByJquery">
+            <summary>
+                Use jQuery to locate element or list of elements
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Locators.ByJquery.#ctor(System.String)">
+            <summary>
+                Creates new instance of jQuery element finder.
+            </summary>
+            <param name="jqSelector">
+                jQuery compatible element selector.
+            </param>
+        </member>
+        <member name="T:HtmlElements.PageObjectFactory">
+            <summary>
+                Default page object implementation creating lazy loading proxies for every web element or list of web elements.
+                It can't handle multiple <see cref="T:OpenQA.Selenium.Support.PageObjects.FindsByAttribute"/> attributes as well as <see cref="T:OpenQA.Selenium.Support.PageObjects.FindsBySequenceAttribute"/> and <see cref="T:OpenQA.Selenium.Support.PageObjects.FindsByAllAttribute"/>. 
+            
+                It supports <see cref="T:OpenQA.Selenium.Support.PageObjects.CacheLookupAttribute"/> for elements and element lists by using same raw web element once it have been found.
+                It also supports smart frames (derived from <see cref="T:HtmlElements.Elements.HtmlFrame"/> class) which can host nested elements and automatically switch context.
+            
+                Factory requires nested page objects to have default constructor or constructor accepting <see cref="T:OpenQA.Selenium.IWebElement"/> as a single argument
+                or <see cref="T:OpenQA.Selenium.IWebElement"/> as first argument and <see cref="T:HtmlElements.IPageObjectFactory"/> as second.
+            
+                When <see cref="M:HtmlElements.IPageObjectFactory.Create``1(OpenQA.Selenium.ISearchContext)"/> is called directly it will pass instance of search context being provided as first constructor 
+                argument and itself as second (if needed). It also can use default constructor.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.PageObjectFactory.#ctor">
+            <summary>
+                Creates page factory instance using <see cref="T:HtmlElements.Proxy.ProxyFactory"/> for creating lazy loading error handling proxies
+                and <see cref="T:HtmlElements.LazyLoad.LoaderFactory"/> for creating lazy loaded elements and element lists.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.PageObjectFactory.#ctor(HtmlElements.Proxy.IProxyFactory,HtmlElements.LazyLoad.ILoaderFactory)">
+            <summary>
+                Creates page factory instance using provided <paramref name="proxyFactory"/> for creating proxies
+                and <paramref name="loaderFactory"/> for creating lazy elements and list of elements.
+            </summary>
+            <param name="proxyFactory">
+                Factory creating WebElement and WebElement list proxies.
+            </param>
+            <param name="loaderFactory">
+                Factory creating WebElement and WebElement list loaders.
+            </param>
+        </member>
+        <member name="M:HtmlElements.PageObjectFactory.CreateWebElement(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By)">
+            <summary>
+                Creates lazy loaded WebElement found with provided locator in given search context.
+            </summary>
+            <param name="searchContext">
+                Context used for finding element.
+            </param>
+            <param name="locator">
+                Element locator to use for finding element.
+            </param>
+            <returns>
+                Lazy loaded WebElement found in given search context with provided locator.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.PageObjectFactory.CreateWebElement``1(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By)">
+            <summary>
+                Creates and initializes page object of a given type and all nested page objects using WebElement found within given context by provided locator.
+            </summary>
+            <typeparam name="TPageObject">
+                Page object class.
+            </typeparam>
+            <param name="searchContext">
+                Parent context used for finding the element used as page element root.
+            </param>
+            <param name="locator">
+                Locator used for finding underlying WebElement used as page element root.
+            </param>
+            <returns>
+                Fully initialized page object using WebElement found in <paramref name="searchContext" /> with <paramref name="locator" /> for finding nested elements.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.PageObjectFactory.CreateWebElementList(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By)">
+            <summary>
+                Creates lazy loaded list of WebElements found with provided locator in given search context
+            </summary>
+            <param name="searchContext">
+                Context used for finding elements
+            </param>
+            <param name="locator">
+                Element locator to use for finding elements
+            </param>
+            <returns>
+                Lazy loaded list of WebElements
+            </returns>
+        </member>
+        <member name="M:HtmlElements.PageObjectFactory.CreateWebElementList``1(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By)">
+            <summary>
+                Creates and initializes list of page elements and it's nested page objects.
+            </summary>
+            <typeparam name="TPageObject">
+                The type of the page object.
+            </typeparam>
+            <param name="searchContext">
+                The search context used for finding underlying WebElements.
+            </param>
+            <param name="locator">
+                The locator used for finding underlying WebElements.
+            </param>
+            <returns>
+                List of initialized page objects wrapping elements found in <paramref name="searchContext" /> with <paramref name="locator" />.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.PageObjectFactory.CreateMemberInstance(System.Type,System.Reflection.MemberInfo,OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Creates value assigned to page object member (field or property).
+            </summary>
+            <param name="memberType">
+                Declared type of property or field.
+            </param>
+            <param name="memberInfo">
+                Field or property meta information.
+            </param>
+            <param name="searchContext">
+                Parent page object context.
+            </param>
+            <returns>
+                Initialized field or property value or null.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.PageObjectFactory.CreatePageObjectInstance(System.Type,OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Creates page object using two-arguments constructor (<see cref="T:OpenQA.Selenium.ISearchContext"/> and <see cref="T:HtmlElements.IPageObjectFactory"/>)
+                or single argument constructor (<see cref="T:OpenQA.Selenium.ISearchContext"/>) or default constructor.
+            </summary>
+            <param name="pageObjectType">
+                Type of page object being initialized.
+            </param>
+            <param name="searchContext">
+                Optional constructor argument representing search context being wrapped.
+                It could be <see cref="T:OpenQA.Selenium.IWebElement" /> or <see cref="T:OpenQA.Selenium.IWebDriver" /> instance or other page object.
+            </param>
+            <returns>
+                New instance of given type.
+            </returns>
+        </member>
+        <member name="T:HtmlElements.AbstractPageObjectFactory">
+            <summary>
+                Implements <see cref="T:HtmlElements.IPageObjectFactory" /> contract and delegates responsibility for creating actual page object
+                and initializing it's members to subclasses.
+                It class takes care of locating suitable for initialization members and assigning value to it.
+                It looks for all instance fields and properties which are web elements or web element lists and have not been
+                assigned value yet.
+                Both fields and properties can be private protected or public, but in order to be initialized
+                fields should not be marked
+                <value>readonly</value>
+                and properties should have setters.
+            </summary>
+        </member>
+        <member name="M:HtmlElements.AbstractPageObjectFactory.Create(System.Type,OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Creates and initializes page object of a given type and all nested page objects.
+            </summary>
+            <param name="pageObjecType">Page object type</param>
+            <param name="searchContext">Context used for finding elements</param>
+            <returns>Fully initialized page object</returns>
+        </member>
+        <member name="M:HtmlElements.AbstractPageObjectFactory.Create``1(OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Creates and initializes page object of a given type and all nested page objects.
+            </summary>
+            <typeparam name="TPageObject">Page object type</typeparam>
+            <param name="searchContext">Context used for finding elements</param>
+            <returns>Fully initialized page object</returns>
+        </member>
+        <member name="M:HtmlElements.AbstractPageObjectFactory.Init(System.Object,OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Initialize web elements in given page object instance
+            </summary>
+            <param name="pageObject">Not initialized page object</param>
+            <param name="searchContext">Context used for finding elements</param>
+        </member>
+        <member name="M:HtmlElements.AbstractPageObjectFactory.Init(HtmlElements.WebDriverWrapper)">
+            <summary>
+                Initialize page object using it's wrapped context
+            </summary>
+            <param name="pageObject">Page object instance to be initialized</param>
+        </member>
+        <member name="M:HtmlElements.AbstractPageObjectFactory.CreateWebElement(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By)">
+            <summary>
+                Creates WebElement found with provided locator in given search context
+            </summary>
+            <param name="searchContext">
+                Context used for finding element
+            </param>
+            <param name="locator">
+                Element locator to use for finding element
+            </param>
+            <returns>
+                Custom WebElement found in given search context with provided locator
+            </returns>
+        </member>
+        <member name="M:HtmlElements.AbstractPageObjectFactory.CreateWebElementList(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By)">
+            <summary>
+                Creates list of WebElements found with provided locator in given search context
+            </summary>
+            <param name="searchContext">
+                Context used for finding elements
+            </param>
+            <param name="locator">
+                Element locator to use for finding elements
+            </param>
+            <returns>
+                Custom list of WebElements
+            </returns>
+        </member>
+        <member name="M:HtmlElements.AbstractPageObjectFactory.CreateWebElement``1(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By)">
+            <summary>
+                Creates and initializes page object of a given type and all nested page objects.
+            </summary>
+            <typeparam name="TPageObject">
+                Page object class.
+            </typeparam>
+            <param name="searchContext">
+                Parent context used for finding the element used as page element root.
+            </param>
+            <param name="locator">
+                Locator used for finding underlying WebElement used as page element root.
+            </param>
+            <returns>
+                Fully initialized page object using WebElement found in <paramref name="searchContext"/> with <paramref name="locator"/> for finding nested elements.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.AbstractPageObjectFactory.CreateWebElementList``1(OpenQA.Selenium.ISearchContext,OpenQA.Selenium.By)">
+            <summary>
+                Creates and initializes list of page elements and it's nested page objects.
+            </summary>
+            <typeparam name="TPageObject">
+                The type of the page object.
+            </typeparam>
+            <param name="searchContext">
+                The search context used for finding underlying WebElements.
+            </param>
+            <param name="locator">
+                The locator used for finding underlying WebElements.
+            </param>
+            <returns>
+                List of initialized page objects wrapping elements found in <paramref name="searchContext"/> with <paramref name="locator"/>.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.AbstractPageObjectFactory.CreateMemberInstance(System.Type,System.Reflection.MemberInfo,OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Creates value assigned to page object member (field or property).
+            </summary>
+            <param name="memberType">Declared type of property or field</param>
+            <param name="memberInfo">Field or property meta information</param>
+            <param name="searchContext">Parent page object context</param>
+            <returns>Initialized field or property value or null</returns>
+        </member>
+        <member name="M:HtmlElements.AbstractPageObjectFactory.CreatePageObjectInstance(System.Type,OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Create instance of page object class. It is not responsible for initializing page object members.
+            </summary>
+            <param name="pageObjectType">Type of page object being initialized</param>
+            <param name="searchContext">
+                Optional constructor argument representing search context being wrapped.
+                It could be <see cref="T:OpenQA.Selenium.IWebElement" /> or <see cref="T:OpenQA.Selenium.IWebDriver" /> instance or other page object.
+            </param>
+            <returns>New instance of given type</returns>
+        </member>
+        <member name="T:HtmlElements.Proxy.IProxyFactory">
+            <summary>
+                Creates instances implementing <see cref="T:OpenQA.Selenium.IWebElement"/> or <see cref="T:System.Collections.Generic.IList`1"/> 
+                interfaces and wrapping corresponding element loaders
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Proxy.IProxyFactory.CreateWebElementProxy(HtmlElements.LazyLoad.ILoader{OpenQA.Selenium.IWebElement})">
+            <summary>
+                Creates <see cref="T:OpenQA.Selenium.IWebElement"/> instance using <paramref name="loader"/> to get raw <see cref="T:OpenQA.Selenium.IWebElement"/> and delegating calls to it.
+            </summary>
+            <param name="loader">
+                Element loader providing raw <see cref="T:OpenQA.Selenium.IWebElement"/>.
+            </param>
+            <returns>
+                Proxy implementing <see cref="T:OpenQA.Selenium.IWebElement"/> interface.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.Proxy.IProxyFactory.CreateFrameProxy(HtmlElements.LazyLoad.ILoader{OpenQA.Selenium.IWebElement})">
+            <summary>
+                Create frame-specific web element proxy using <see cref="T:OpenQA.Selenium.IWebDriver"/> to locate nested elements.
+            </summary>
+            <param name="loader">
+                Element loader providing raw <see cref="T:OpenQA.Selenium.IWebElement"/> pointing to frame.
+            </param>
+            <returns>
+                Proxy implementing <see cref="T:OpenQA.Selenium.IWebElement"/> interface.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.Proxy.IProxyFactory.CreateListProxy(System.Type,System.Object)">
+            <summary>
+                Creates list of WebElements wrapping <paramref name="loader"/> and delegating all calls to list returned by it.
+            </summary>
+            <param name="elementType">
+                Type of elements stored in list.
+            </param>
+            <param name="loader">
+                List loader providing collection of raw <see cref="T:OpenQA.Selenium.IWebElement">WebElements</see> or page objects.
+            </param>
+            <returns>
+                Proxy implementing <see cref="T:System.Collections.Generic.IList`1"/> interface.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.Proxy.IProxyFactory.CreateListProxy``1(HtmlElements.LazyLoad.ILoader{System.Collections.Generic.IList{``0}})">
+            <summary>
+                Creates list of WebElements wrapping <paramref name="loader"/> and delegating all calls to list returned by it.
+            </summary>
+            <typeparam name="TElement">
+                Type of elements stored in list.
+            </typeparam>
+            <param name="loader">
+                List loader providing collection of raw <see cref="T:OpenQA.Selenium.IWebElement">WebElements</see> or page objects.
+            </param>
+            <returns>
+                Proxy implementing <see cref="T:System.Collections.Generic.IList`1"/> interface.
+            </returns>
+        </member>
+        <member name="T:HtmlElements.Proxy.ProxyFactory">
+            <summary>
+                Default proxy factory using hand-crafted proxies
+            </summary>
+        </member>
+        <member name="M:HtmlElements.Proxy.ProxyFactory.CreateWebElementProxy(HtmlElements.LazyLoad.ILoader{OpenQA.Selenium.IWebElement})">
+            <summary>
+                Creates <see cref="T:OpenQA.Selenium.IWebElement"/> instance using <paramref name="loader"/> to get raw <see cref="T:OpenQA.Selenium.IWebElement"/> and delegating calls to it.
+            </summary>
+            <param name="loader">
+                Element loader providing raw <see cref="T:OpenQA.Selenium.IWebElement"/>.
+            </param>
+            <returns>
+                Proxy implementing <see cref="T:OpenQA.Selenium.IWebElement"/> interface.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+                Thrown when provided loader is null.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Proxy.ProxyFactory.CreateListProxy(System.Type,System.Object)">
+            <summary>
+                Creates list of WebElements wrapping <paramref name="loader"/> and delegating all calls to list returned by it.
+            </summary>
+            <param name="elementType">
+                Type of elements stored in list.
+            </param>
+            <param name="loader">
+                List loader providing collection of raw <see cref="T:OpenQA.Selenium.IWebElement">WebElements</see> or page objects.
+            </param>
+            <returns>
+                Proxy implementing <see cref="T:System.Collections.Generic.IList`1"/> interface.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+                Thrown when <paramref name="elementType"/> or <paramref name="loader"/> is null.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Proxy.ProxyFactory.CreateFrameProxy(HtmlElements.LazyLoad.ILoader{OpenQA.Selenium.IWebElement})">
+            <summary>
+                Create frame-specific web element proxy using <see cref="T:OpenQA.Selenium.IWebDriver"/> to locate nested elements.
+            </summary>
+            <param name="loader">
+                Element loader providing raw <see cref="T:OpenQA.Selenium.IWebElement"/> pointing to frame.
+            </param>
+            <returns>
+                Proxy implementing <see cref="T:OpenQA.Selenium.IWebElement"/> interface.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+                Thrown when provided loader is null.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.Proxy.ProxyFactory.CreateListProxy``1(HtmlElements.LazyLoad.ILoader{System.Collections.Generic.IList{``0}})">
+            <summary>
+                Creates list of WebElements wrapping <paramref name="loader"/> and delegating all calls to list returned by it.
+            </summary>
+            <typeparam name="TElement">
+                Type of elements stored in list.
+            </typeparam>
+            <param name="loader">
+                List loader providing collection of raw <see cref="T:OpenQA.Selenium.IWebElement">WebElements</see> or page objects.
+            </param>
+            <returns>
+                Proxy implementing <see cref="T:System.Collections.Generic.IList`1"/> interface.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+                Thrown when provided loader is null.
+            </exception>
+        </member>
+        <member name="T:HtmlElements.WebDriverWrapper">
+            <summary>
+                Represents object wrapping web driver. Provides methods for executing JavaScript and retrieving wrapped driver instance. 
+            </summary>
+        </member>
+        <member name="M:HtmlElements.WebDriverWrapper.#ctor(OpenQA.Selenium.ISearchContext)">
+            <summary>
+                Initializes wrapper converting provided object to WebDriver
+            </summary>
+            <param name="webDriverOrWrapper">
+                <see cref="T:OpenQA.Selenium.IWebDriver"/>, <see cref="T:OpenQA.Selenium.IWebElement"/> or anything else 
+                which is wrapping WebDriver instance and can be used for locating elements
+            </param>
+        </member>
+        <member name="P:HtmlElements.WebDriverWrapper.PageObjectFactory">
+            <summary>
+                Gets the page object factory used to initialize current page object instance.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+                Thrown if page factory was not set during page object initialization.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.WebDriverWrapper.ExecuteScript(System.String,System.Object[])">
+            <summary>
+                Executes JavaScript in the context of the currently selected frame or window.
+            </summary>
+            <param name="script">
+                The JavaScript code to execute.
+            </param>
+            <param name="args">
+                The arguments to the script.
+            </param>
+            <returns>
+                The value returned by the script.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+                Thrown when wrapped <see cref="T:OpenQA.Selenium.IWebDriver"/> cannot be converted to <see cref="T:OpenQA.Selenium.IJavaScriptExecutor"/>.
+            </exception>
+            <remarks>
+            <para>
+            The method executes JavaScript in the context of the currently selected frame or window. This means that "document" will refer
+            to the current document. If the script has a return value, then the following steps will be taken:
+            </para>
+            <para>
+              <list type="bullet">
+                <item>
+                  <description>For an HTML element, this method returns a <see cref="T:OpenQA.Selenium.IWebElement" /></description>
+                </item>
+                <item>
+                  <description>For a number, a <see cref="T:System.Int64" /> is returned</description>
+                </item>
+                <item>
+                  <description>For a boolean, a <see cref="T:System.Boolean" /> is returned</description>
+                </item>
+                <item>
+                  <description>For all other cases a <see cref="T:System.String" /> is returned.</description>
+                </item>
+                <item>
+                  <description>For an array, we check the first element, and attempt to return a
+            <see cref="T:System.Collections.Generic.List`1" /> of that type, following the rules above. Nested lists are not
+            supported.</description>
+                </item>
+                <item>
+                  <description>If the value is null or there is no return value, <see langword="null" /> is returned.</description>
+                </item>
+              </list>
+            </para>
+            <para>
+            Arguments must be a number (which will be converted to a <see cref="T:System.Int64" />),
+            a <see cref="T:System.Boolean" />, a <see cref="T:System.String" /> or a <see cref="T:OpenQA.Selenium.IWebElement" />.
+            An exception will be thrown if the arguments do not meet these criteria.
+            The arguments will be made available to the JavaScript via the "arguments" magic
+            variable, as if the function were called via "Function.apply"
+            </para>
+            </remarks>
+        </member>
+        <member name="M:HtmlElements.WebDriverWrapper.ExecuteAsyncScript(System.String,System.Object[])">
+            <summary>
+                Executes JavaScript asynchronously in the context of the currently selected frame or window.
+            </summary>
+            <param name="script">
+                The JavaScript code to execute.
+            </param>
+            <param name="args">
+                The arguments to the script.
+            </param>
+            <returns>
+                The value returned by the script.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+                Thrown when wrapped <see cref="T:OpenQA.Selenium.IWebDriver"/> cannot be converted to <see cref="T:OpenQA.Selenium.IJavaScriptExecutor"/>.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.WebDriverWrapper.FindElements(OpenQA.Selenium.By)">
+            <summary>
+                Finds all <see cref="T:OpenQA.Selenium.IWebElement">IWebElements</see> within the current context using the given mechanism.
+            </summary>
+            <param name="by">
+                The locating mechanism to use.
+            </param>
+            <returns>
+                A <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1" /> of all <see cref="T:OpenQA.Selenium.IWebElement">WebElements</see>
+            matching the current criteria, or an empty list if nothing matches.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.WebDriverWrapper.FindElement(OpenQA.Selenium.By)">
+            <summary>
+                Finds the first <see cref="T:OpenQA.Selenium.IWebElement" /> using the given method.
+            </summary>
+            <param name="by">
+                The locating mechanism to use.
+            </param>
+            <returns>
+                The first matching <see cref="T:OpenQA.Selenium.IWebElement" /> on the current context.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.WebDriverWrapper.FindElement``1(OpenQA.Selenium.By)">
+            <summary>
+                Finds the first <see cref="T:OpenQA.Selenium.IWebElement"/> using given method and creates a page object of given type wrapping the element.
+            </summary>
+            <typeparam name="TElement">
+                The type of the element.
+            </typeparam>
+            <param name="by">The locating mechanism to use.</param>
+            <returns>
+                The first matching <see cref="T:OpenQA.Selenium.IWebElement" /> on the current context wrapped by page object instance of given type.
+            </returns>
+        </member>
+        <member name="M:HtmlElements.WebDriverWrapper.FindElements``1(OpenQA.Selenium.By)">
+            <summary>
+                Finds all <see cref="T:OpenQA.Selenium.IWebElement">IWebElements</see> within the current context using the given mechanism and creates page objects wrapping it.
+            </summary>
+            <param name="by">
+                The locating mechanism to use.
+            </param>
+            <returns>
+                A <see cref="T:System.Collections.Generic.IList`1" /> of all <see cref="T:OpenQA.Selenium.IWebElement">WebElements</see> matching the current criteria
+                wrapped by page objects instances of given type, or an empty list if nothing matches.
+            </returns>
+        </member>
+        <member name="P:HtmlElements.WebDriverWrapper.WrappedDriver">
+            <summary>
+                Gets the <see cref="T:OpenQA.Selenium.IWebDriver" /> wrapped by current page object instance.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+                Thrown when wrapped search context cannot be converted to <see cref="T:OpenQA.Selenium.IWebDriver"/>.
+            </exception>
+        </member>
+        <member name="M:HtmlElements.WebDriverWrapper.ToString">
+            <summary>
+                Describes actual page object type and wrapped search context.
+            </summary>
+        </member>
+    </members>
+</doc>

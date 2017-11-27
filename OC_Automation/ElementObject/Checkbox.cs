@@ -1,8 +1,4 @@
-﻿using HtmlElements.Elements;
-using Microsoft.VisualStudio.Services.Client.Controls;
-using Microsoft.VisualStudio.TestTools.UITesting;
-using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
-using static Microsoft.VisualStudio.TestTools.UITesting.Mouse;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
 using BrowserWindow = Microsoft.VisualStudio.TestTools.UITesting.BrowserWindow;
 using HtmlCheckBox = Microsoft.VisualStudio.TestTools.UITesting.HtmlControls.HtmlCheckBox;
 
@@ -19,6 +15,7 @@ namespace OC_Automation.ElementObject
         }
 
         public Checkbox(BrowserWindow browserWindow)
+
         {
             _checkBox = new HtmlCheckBox(browserWindow) { TechnologyName = "Web" };
 
